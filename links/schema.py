@@ -24,24 +24,30 @@ class CreateLink(graphene.Mutation):
     url = graphene.String()
     description = graphene.String()
     posted_by = graphene.Field(UserType)
+    typeboat = graphene.String()
 
     class Arguments:
         url = graphene.String()
         description = graphene.String()
+        typeboat = graphene.String()
 
-    def mutate(self, info, url, description):
+    def mutate(self, info, url, description, typeboat=None):
         user = info.context.user
         if user.is_anonymous:
             raise Exception("Autenticación requerida")
 
-        link = Link(url=url, description=description, posted_by=user)
+        link = Link(url=url,
+        description=description, 
+        posted_by=user,
+        typeboat=typeboat)
         link.save()
 
         return CreateLink(
             id=link.id,
             url=link.url,
             description=link.description,
-            posted_by=link.posted_by
+            posted_by=link.posted_by,
+            typeboat = link.typeboat
         )
 
 
