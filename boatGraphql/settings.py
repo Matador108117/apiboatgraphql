@@ -34,7 +34,7 @@ SECRET_KEY = 'zid5wre1x%(bv1@u#5_-x@4-jo()nvk^^x0x8!%fl2sg7il$+k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['apiboatgraphql.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
