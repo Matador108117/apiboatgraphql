@@ -3,6 +3,9 @@
 echo " Instalando dependencias"
 pip install -r requirements.txt
 
+echo "hacer migraciones"
+python manage.py makemigrations
+
 echo " Ejecutando migraciones"
 python manage.py migrate
 
