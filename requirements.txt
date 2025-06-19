@@ -11,5 +11,6 @@ setuptools
 dj-database-url
 whitenoise[brotli]
 gunicorn
+django-environ
 
 
