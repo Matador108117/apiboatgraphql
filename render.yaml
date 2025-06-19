@@ -1,9 +1,13 @@
 services:
   - type: web
-    name: boatgraphql-backend
+    name: my-boat-graphql
     env: python
     buildCommand: "./build.sh"
     startCommand: "gunicorn boatGraphql.wsgi:application"
+    branch: release
     envVars:
-      - key: DJANGO_SETTINGS_MODULE
-        value: boatGraphql.settings
+      - key: DATABASE_URL
+        fromDatabase:
+          name: boatdb
+          property: connectionString
+
